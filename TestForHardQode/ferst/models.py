@@ -9,17 +9,34 @@ class Product(models.Model):
     min_students = models.IntegerField(default=1, verbose_name="Минимальное количество студентов")  
     max_students = models.IntegerField(default=30, verbose_name="Максимальное количество студентов")
 
+    def __str__(self):
+        return self.name
+
+
 class ProductAccess(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
 
+    class Meta:
+        unique_together = ['user', 'product']
+        
+    def __str__(self):
+        return f"{self.user} - {self.product}"
+
 class Lesson(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название урока")
     video_url = models.URLField(verbose_name="Ссылка на видео")
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Связь с продуктом")  
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Связь с продуктом")
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядок урока")
+
+    def __str__(self):
+        return f"{self.title} - {self.video_url}"
 
 class Group(models.Model):
     name = models.CharField(max_length=250, verbose_name="Название группы")
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)  
-    students = models.ManyToManyField(User, verbose_name="Студенты") 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    members = models.ManyToManyField(User, verbose_name="Участники")
 
+
+    def __str__(self):
+        return f"{self.name}"
