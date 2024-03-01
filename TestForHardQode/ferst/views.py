@@ -1,6 +1,8 @@
 from django.shortcuts import render,HttpResponse
 from .models import Product,ProductAccess  
 
+def index_view(request):
+    return render(request, 'index.html')
 
 def products_list (request):
     products = Product.objects.all()
@@ -10,9 +12,5 @@ def products_list (request):
 def product_access_list(request):
     product_access_list = ProductAccess.objects.all()
 
-    # Формируем HTML-разметку напрямую в функции представления
-    html_output = "<h1>Product Access List</h1>"
-    for entry in product_access_list:
-        html_output += f"<p>{entry.user} - {entry.product}</p>"
-
-    return HttpResponse(html_output)
+    return render(request,"/Users/ivan/Documents/TestHomework/TestForHardQode/ferst/templates/ferst/user_accessible_lessons.html",{"product_access_list":product_access_list})
+#

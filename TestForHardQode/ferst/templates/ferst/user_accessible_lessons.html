@@ -7,8 +7,8 @@
   <body>
     <table>
       {% for entry in product_access_list %}
-        {{ entry.user }} - {{ entry.product }} <br />
-      {% endfor %}
+      <tr><td>У пользователя: <em>{{ entry.user }}</em> есть доступ к курсу <em>{{ entry.product }}</em> </td></tr>
+              {% endfor %}
     </table>
   </body>
 </html>
