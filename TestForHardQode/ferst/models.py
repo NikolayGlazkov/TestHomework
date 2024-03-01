@@ -9,6 +9,7 @@ class Product(models.Model):
     creator = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Связь с создателем продукта")
     min_students = models.IntegerField(default=1, verbose_name="Минимальное количество студентов")  
     max_students = models.IntegerField(default=30, verbose_name="Максимальное количество студентов")
+    lesson_count = models.IntegerField(verbose_name="Максимальное количество уроков",null=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product access name</title>
+  </head>
+  <body>
+    <table>
+      {% for entry in product_access_list %}
+        {{ entry.user }} - {{ entry.product }} <br />
+      {% endfor %}
+    </table>
+  </body>
+</html>
