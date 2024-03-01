@@ -36,11 +36,15 @@ class Lesson(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=250, verbose_name="Название группы")
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    members = models.ManyToManyField(User, verbose_name="Участники")
+    members = models.ManyToManyField(User, related_name='group_members', verbose_name="Участники")
 
 
     def __str__(self):
         return f"{self.name}"
+    
+
+    # сложное задание модели были самой легкой частью я пытался тестировать 
+    #при поиоши shell но так и не добился успеха, с тестами я не знаком, не могу запустить даже простой тест
     
     def distribute_users(self):
     # Получаем количество участников в группе
