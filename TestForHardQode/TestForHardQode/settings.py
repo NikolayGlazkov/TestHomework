@@ -55,7 +55,7 @@ ROOT_URLCONF = 'TestForHardQode.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["TestForHardQode/ferst/templates/ferst"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

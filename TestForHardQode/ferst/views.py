@@ -1,8 +1,8 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,redirect
 from .models import Product,ProductAccess  
 
 def index_view(request):
-    return render(request, 'index.html')
+    return render(request, '/Users/ivan/Documents/TestHomework/TestForHardQode/ferst/templates/ferst/index.html')
 
 def products_list (request):
     products = Product.objects.all()
