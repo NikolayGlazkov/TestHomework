@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products List</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>creator</th>
+        <th>min count stydent</th>
+        <th>lesson count</th>
+    </tr>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>Название продукта: <strong>{{ product.name }}</strong></td>
+            <td>Цена продукта: <strong>{{ product.price }}</strong></td>
+            <td>Автор: <strong>{{ product.creator }}</strong></td>
+            <td>Минимальное количество сутдентов{{product.min_students}}</strong></td>
+            <td>количество уроков в курсе: <strong>{{product.lesson_count}}</strong></td>
+        </tr>
+        {% endfor %}
+</table>
+</body>
+</html>
+
+
+

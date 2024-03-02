@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product access name</title>
+  </head>
+  <body>
+    <table>
+      {% for entry in product_access_list %}
+      <tr><td>У пользователя: <em>{{ entry.user }}</em> есть доступ к курсу <em>{{ entry.product }}</em> </td></tr>
+              {% endfor %}
+    </table>
+  </body>
+</html>
